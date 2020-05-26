@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin add new product</title>
+        <style>
+            h2 {
+            color: green;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 20px;
+            }
+            h5 {
+            color: #b30000;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 12px;
+            }
+        </style>
+</head>
+<body>
+
+    <h2>Add new Product</h2>
+        <form action="/admin/product" method="post">
+          <label for="pr_name">Enter product name:</label><br>
+          <input type="text" id="pr_name" name="pr_name"><br><br>
+          <label for="categ_name">Choose which category it belongs to:</label><br>
+          <select id="categ_name" name="categ_name">
+              {% for category in categories %}
+                <option value={{category}}>{{category}}</option>
+              {% endfor %}
+          </select>
+          <br><br><label for="pr_price">Enter the product price, eur:</label><br>
+          <input type="number" id="pr_price" name="pr_price"><br><br>
+          <label for="pr_qty">Enter quantity:</label><br>
+          <input type="number" id="pr_qty" name="pr_qty"><br><br>
+
+          <input type="submit" value="Submit">
+        </form>
+
+    {% if is_success %}
+        <h5>Success! The new product {{new_product}} was added</h5>
+    {% endif %}
+
+</body>
+</html>

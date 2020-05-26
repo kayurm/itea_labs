@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <style>
+    p {
+      border: 1px solid tomato;
+      padding: 15px;
+      margin: 10px;
+      background-color: rgb(240, 240, 240)
+    }
+    h1 {
+    color: green;
+    font-family: "Comic Sans MS", cursive, sans-serif
+    }
+    </style>
+</head>
+<body>
+
+    <h1 style="color:green">CATEGORIES</h1>
+    <br>
+    {% for category in categories %}
+    <p> <a href="{{category}}"> {{category}} </a> </p>
+    {% endfor %}
+
+</body>
+</html>

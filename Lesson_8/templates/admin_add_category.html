@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin add new category</title>
+    <style>
+        h2 {
+        color: green;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 20px;
+        }
+        h5 {
+        color: #b30000;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add new Category</h2>
+        <form action="/admin/category" method="post">
+          <label for="new_category">Enter new Category:</label><br>
+          <input type="text" id="new_category" name="new_category"><br><br>
+          <input type="submit" value="Submit">
+        </form>
+    {% if is_success %}
+        <h5>Success! The new category {{new_category}} was added</h5>
+    {% endif %}
+</body>
+</html>
