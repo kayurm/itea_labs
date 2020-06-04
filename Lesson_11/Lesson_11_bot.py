@@ -17,7 +17,7 @@ feedback_info = dict()
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    msg = bot.reply_to(message, "Oh hey there! I'm a friendly bot Kayurmatik. May I get your full name?")
+    msg = bot.reply_to(message.chat.id, "Oh hey there! I'm a friendly bot Kayurmatik. May I get your full name?")
     bot.register_next_step_handler(msg, get_name_step)
 
 
@@ -26,28 +26,28 @@ def get_name_step(message):
     full_name = message.text
     feedback_info['chat_id'] = message.chat.id
     feedback_info['full_name'] = full_name
-    msg = bot.reply_to(message, f"It's lovely to meet you, {full_name}!!! Now, what's your phone number?")
+    msg = bot.reply_to(message.chat.id, f"It's lovely to meet you, {full_name}!!! Now, what's your phone number?")
     bot.register_next_step_handler(msg, get_phone_step)
 
 
 @bot.message_handler(content_types=['text'])
 def get_phone_step(message):
     feedback_info['phone'] = message.text
-    msg = bot.reply_to(message, f"Good. What's your email?")
+    msg = bot.reply_to(message.chat.id, f"Good. What's your email?")
     bot.register_next_step_handler(msg, get_email_step)
 
 
 @bot.message_handler(content_types=['text'])
 def get_email_step(message):
     feedback_info['email'] = message.text
-    msg = bot.reply_to(message, f"Alrighty, and what's your address?")
+    msg = bot.reply_to(message.chat.id, f"Alrighty, and what's your address?")
     bot.register_next_step_handler(msg, get_address_step)
 
 
 @bot.message_handler(content_types=['text'])
 def get_address_step(message):
     feedback_info['address'] = message.text
-    msg = bot.reply_to(message, f"Now, finally, leave your feedback or any wishes.")
+    msg = bot.reply_to(message.chat.id, f"Now, finally, leave your feedback or any wishes.")
     bot.register_next_step_handler(msg, get_feedback_step)
 
 
