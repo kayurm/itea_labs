@@ -9,9 +9,10 @@ t.me/kayurmatik_bot
 
 from telebot import TeleBot
 from Lesson_11.utilities import queries as q
+from .utilities.config import TOKEN
 
 query = q.Query()
-bot = TeleBot("1279003719:AAH1Bfcov1786KkFjfXiYPKap-jPAgunpN0")
+bot = TeleBot(TOKEN)
 feedback_info = dict()
 
 

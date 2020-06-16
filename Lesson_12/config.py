@@ -1,1 +1,1 @@
-TOKEN = 'I changed my real token as GitHub is swearing'
+TOKEN = 'TOKEN'
